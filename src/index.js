@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import routes from './routes'
+import 'fonts/fonts.css'
 
 ReactDOM.render(routes, document.getElementById('root'));
 

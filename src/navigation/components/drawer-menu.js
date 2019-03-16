@@ -6,10 +6,10 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
     menuItem: {
         '&:focus': {
-            // backgroundColor: theme.palette.gainsboro,
-            // '& $primary, & $icon': {
-            //   color: theme.palette.common.white,
-            // },
+            backgroundColor: theme.palette.gainsboro,
+            '& $primary, & $icon': {
+              color: theme.palette.common.white,
+            },
         },
     },
     primary: {},

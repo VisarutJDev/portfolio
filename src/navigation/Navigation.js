@@ -86,6 +86,10 @@ class Navigation extends Component {
                                 <Clear />
                             </IconButton>
                         </div>
+                        <DrawerItems
+                            onClick={this.onDrawerMenuClick}
+                            is_md_up={true}
+                        />
                     </Drawer>
                 </Hidden>
                 <Hidden smDown implementation="css">
