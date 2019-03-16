@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
-
+import {
+  withStyles,
+  Grid,
+} from "@material-ui/core";
 
 class App extends Component {
   render() {
+    const { classes } = this.props
     return (
-     <div>
-       {this.props.children}
-     </div>
+      <Grid id="mainContainer" className={classes.root}>
+        <h1>HI work-experience!</h1>
+      </Grid>
     );
   }
 }
 
-export default App;
+const styles_component = theme => ({
+  root: {
+      flexGrow: "1",
+      display: "flex",
+      minHeight: "94%",
+      margin: 0,
+      backgroundColor: theme.palette.secondary.main
+  },
+});
+export default withStyles(styles_component)(App);

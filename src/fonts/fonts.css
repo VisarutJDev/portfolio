@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "ThaiSansNeue";
+    src: local("ThaiSansNeue"), url(./ThaiSansNeue-Regular.ttf) format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ThaiSansNeue";
+    src: local("ThaiSansNeue"), url(./ThaiSansNeue-SemiBold.ttf) format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ThaiSansNeue";
+    src: local("ThaiSansNeue"), url(./ThaiSansNeue-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ThaiSansNeue";
+    src: local("ThaiSansNeue"), url(./ThaiSansNeue-ExtraBold.ttf) format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ThaiSansNeue";
+    src: local("ThaiSansNeue"), url(./ThaiSansNeue-UltraBold.ttf) format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}

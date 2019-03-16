@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
-import { withStyles, AppBar, Toolbar, Avatar, Typography } from "@material-ui/core";
+import {
+    withStyles,
+    AppBar,
+    Toolbar,
+    Avatar,
+    Typography,
+    Hidden,
+    Drawer,
+    Divider,
+    IconButton
+} from "@material-ui/core";
+import Clear from "@material-ui/icons/Clear";
 import MenuIcon from "@material-ui/icons/Menu";
 import classNames from "classnames";
-import { isMdScreen } from "../utils/dimension";
+import { isMdScreen } from "utils/dimension";
 import { withRouter } from "react-router-dom";
+import navLogo from 'img/picture_logo.jpg';
+import withRoot from "withRoot";
+import { DrawerItems } from "./components"
+
+const DRAWER_WIDTH = 280;
 
 class Navigation extends Component {
     constructor(props) {
@@ -15,6 +31,13 @@ class Navigation extends Component {
 
     onDrawerToggle = () => {
         this.setState({ drawer_open: !this.state.drawer_open });
+    };
+
+    onDrawerMenuClick = (path, is_md_up) => {
+        if (!is_md_up) {
+            this.setState({ drawer_open: false });
+        }
+        this.props.history.push(path);
     };
 
     componentDidMount() {
@@ -32,7 +55,7 @@ class Navigation extends Component {
                             <MenuIcon classes={{ root: classes.hamburger_button }} onClick={this.onDrawerToggle} />
                         </div>
                         <Avatar
-                            // src={navLogo}
+                            src={navLogo}
                             className={classNames(classes.nav_logo)}
                         />
                         <Typography
@@ -45,10 +68,50 @@ class Navigation extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
+                <Hidden mdUp>
+                    <Drawer
+                        variant="temporary"
+                        anchor={"left"}
+                        open={drawer_open}
+                        onClose={this.onDrawerToggle}
+                        classes={{
+                            paper: classes.drawer_paper
+                        }}
+                        ModalProps={{
+                            keepMounted: true // Better open performance on mobile.
+                        }}
+                    >
+                        <div className={classes.toolbar_button}>
+                            <IconButton onClick={this.onDrawerToggle}>
+                                <Clear />
+                            </IconButton>
+                        </div>
+                    </Drawer>
+                </Hidden>
+                <Hidden smDown implementation="css">
+                    <Drawer
+                        variant="persistent"
+                        open={drawer_open}
+                        anchor={"left"}
+                        onClose={this.onDrawerToggle}
+                        classes={{
+                            paper: classes.drawer_paper
+                        }}
+                        SlideProps={{ unmountOnExit: true }}
+                    >
+                        <div className={classes.toolbar} />
+                        <Divider />
+                        <DrawerItems
+                            onClick={this.onDrawerMenuClick}
+                            is_md_up={true}
+                        />
+                    </Drawer>
+                </Hidden>
                 <main className={classNames(classes.content, classes.content_left, {
                     [classes.content_shift]: drawer_open,
                     [classes.content_shift_left]: drawer_open
                 })}>
+                    <div className={classes.toolbar} />
                     {children}
                 </main>
             </div>
@@ -102,6 +165,11 @@ const styles_component = theme => ({
             color: theme.palette.white,
         },
     },
+    content: {
+        width: "100%",
+        overflowY: "auto",
+        overflowX: "hidden"
+    },
     content_left: {
         [theme.breakpoints.up("md")]: {
             marginLeft: 0
@@ -120,5 +188,23 @@ const styles_component = theme => ({
             marginLeft: 0
         }
     },
+    drawer_paper: {
+        position: "relative",
+        overflow: "hidden",
+        backgroundColor: theme.palette.white_smoke,
+        width: DRAWER_WIDTH
+    },
+    toolbar: {
+        backgroundColor: theme.palette.white,
+        ...theme.mixins.toolbar
+    },
+    toolbar_button: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        padding: "0 8px",
+        backgroundColor: theme.palette.white,
+        ...theme.mixins.toolbar
+    },
 });
-export default withRouter(withStyles(styles_component)(Navigation));
+export default withRoot(withRouter(withStyles(styles_component)(Navigation)));
