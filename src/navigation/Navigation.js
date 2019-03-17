@@ -15,7 +15,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import classNames from "classnames";
 import { isMdScreen } from "utils/dimension";
 import { withRouter } from "react-router-dom";
-import navLogo from 'img/picture_logo.jpg';
+import navLogo from 'img/lazydevlogo.jpeg';
 import withRoot from "withRoot";
 import { DrawerItems } from "./components"
 
@@ -64,7 +64,7 @@ class Navigation extends Component {
                             noWrap
                             className={classes.nav_header}
                         >
-                            VJ Portfolio
+                            {"Lazy-Dev"}
                         </Typography>
                     </Toolbar>
                 </AppBar>
