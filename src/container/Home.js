@@ -7,6 +7,8 @@ import {
 } from "@material-ui/core";
 import { PageHeader } from 'components'
 import aboutMe from 'img/about_me.jpg'
+import Content from 'components/content'
+
 class Home extends Component {
     render() {
         const { classes } = this.props
@@ -22,7 +24,7 @@ class Home extends Component {
                     <PageHeader
                         title="Visarut Junsone"
                     />
-                    <div className={classes.space_bottom}/>
+                    <div className={classes.space_bottom} />
                     <Grid item className={classes.content_container}>
                         <Grid
                             spacing={0}
@@ -37,18 +39,29 @@ class Home extends Component {
                             </Typography>
                         </Grid>
                         <Grid
-                            spacing={0}
+                            spacing={24}
                             container
-                            alignItems="center"
+                            alignItems="flex-start"
                             direction="row"
-                            justify="space-between"
+                            justify="flex-start"
                             className={classes.content_header}
                         >
                             <Grid item>
                                 <img src={aboutMe} alt="" className={classes.about_me_img}></img>
                             </Grid>
                             <Grid item>
-
+                                <Typography variant="headline" className={classes.content_about_me}>
+                                    <div className="typewriter">
+                                        <Content
+                                            prefix={"I'm Visarut Junsone and "}
+                                            strings={[
+                                                'Software Solution Developer',
+                                                'Full-Stack Developer',
+                                                'Lazy-Dev'
+                                            ]}
+                                        />
+                                    </div>
+                                </Typography>
                             </Grid>
                         </Grid>
                         <Grid
@@ -59,7 +72,7 @@ class Home extends Component {
                             justify="space-between"
                             className={classes.content_subheader}
                         >
-                        
+
                         </Grid>
                     </Grid>
                 </Grid>
@@ -121,5 +134,11 @@ const styles_component = theme => ({
         margin: "0px",
         backgroundColor: theme.palette.white_blue,
     },
+    content_about_me: {
+        fontWeight: '800',
+        height: "48px",
+        margin: "12px 0 4px 0",
+        color: theme.palette.jet_black,
+    }
 });
 export default withStyles(styles_component)(Home);

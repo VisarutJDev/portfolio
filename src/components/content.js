@@ -25,11 +25,11 @@ class Content extends Component {
     }
 
     render() {
-        const { classes } = this.props
+        const { classes, prefix } = this.props
         return (
             <div className="wrap">
                 <div className={classes.type_wraped}>
-                    {"I'm a "}<span
+                    {prefix}<span
                         style={{ whiteSpace: 'pre' }}
                         ref={(el) => { this.el = el; }}
                     />

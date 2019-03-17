@@ -34,6 +34,7 @@ const PageHeader = ({ title, classes }) => {
             >
                 <div className="typewriter">
                     <Content
+                        prefix={"I'm a "}
                         strings={[
                             'Software Solution Developer',
                             'Full-Stack Developer',
