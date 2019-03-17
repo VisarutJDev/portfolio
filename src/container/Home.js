@@ -126,6 +126,7 @@ const styles_component = theme => ({
         flexGrow: "1"
     },
     about_me_img: {
+        maxWidth:"100%",
         margin: "20px"
     },
     space_bottom: {

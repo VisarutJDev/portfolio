@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/ThaiSansNeue-Bold.b6c70355.ttf"
   },
   {
-    "revision": "9c2b8c0772abff1853ce",
+    "revision": "5086f62065cc77f76c6a",
     "url": "/static/css/main.52a3a867.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/static/media/about_me.a5297186.jpg"
   },
   {
-    "revision": "9c2b8c0772abff1853ce",
-    "url": "/static/js/main.19f64d77.chunk.js"
+    "revision": "5086f62065cc77f76c6a",
+    "url": "/static/js/main.23f54472.chunk.js"
   },
   {
     "revision": "e7ea8256f57125280ae3d6cf9cd0390b",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/static/media/ThaiSansNeue-Regular.092b215e.ttf"
   },
   {
-    "revision": "224e3293b98ae554abd931aeba61b395",
+    "revision": "5dcb7981d2106a091e6795d70a0b3b24",
     "url": "/index.html"
   }
 ];
