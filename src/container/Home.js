@@ -4,7 +4,7 @@ import {
     Grid,
     Card,
 } from "@material-ui/core";
-
+import { PageHeader } from 'components'
 class Home extends Component {
     render() {
         const { classes } = this.props
@@ -17,6 +17,9 @@ class Home extends Component {
                     elevation={2}
                     className={classes.page_container}
                 >
+                    <PageHeader
+                        title="Visarut Junsone"
+                    />
                     <h1>HI Home!</h1>
                 </Grid>
             </Grid>
