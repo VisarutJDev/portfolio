@@ -25,19 +25,24 @@ const PageHeader = ({ title, classes }) => {
                     className={classNames(classes.nav_logo)}
                 />
                 {title}
+            </Typography>
+            <Typography
+                align="center"
+                variant="display4"
+                gutterBottom
+                className={classes.title}
+            >
                 <div className="typewriter">
                     <Content
                         strings={[
                             'Software Solution Developer',
                             'Full-Stack Developer',
-                            'LazyDev'
+                            'Lazy-Dev'
                         ]}
                     />
                 </div>
             </Typography>
-
             <div className={classes.divider} />
-
         </Grid>
     );
 };

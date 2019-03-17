@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Typed from 'typed.js';
+import { withStyles } from "@material-ui/core";
 
 class Content extends Component {
     componentDidMount() {
@@ -24,9 +25,10 @@ class Content extends Component {
     }
 
     render() {
+        const { classes } = this.props
         return (
             <div className="wrap">
-                <div className="type-wrap">
+                <div className={classes.type_wraped}>
                     {"I'm a "}<span
                         style={{ whiteSpace: 'pre' }}
                         ref={(el) => { this.el = el; }}
@@ -37,4 +39,11 @@ class Content extends Component {
     }
 }
 
-export default Content;
+const component_styles = theme => ({
+    type_wraped: {
+        paddingLeft: "15px",
+        paddingRight: "15px",
+    }
+});
+
+export default withStyles(component_styles)(Content);

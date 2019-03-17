@@ -10,6 +10,7 @@ const theme = createMuiTheme({
     fontSize: 18
   },
   palette: {
+    white_blue: "#f6f7fd",
     primary: {
       light: "#839691",
       main: "#5a6965",
