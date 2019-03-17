@@ -104,8 +104,6 @@ const styles_component = theme => ({
         flexGrow: "1"
     },
     about_me_img: {
-        width: 363,
-        height: 422,
         margin: "20px"
     },
     space_bottom: {
