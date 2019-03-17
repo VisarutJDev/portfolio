@@ -4,13 +4,29 @@ import {
     Grid,
     Card,
     Typography,
+    Hidden,
 } from "@material-ui/core";
 import { PageHeader } from 'components'
 import aboutMe from 'img/about_me.jpg'
 import Content from 'components/content'
 
 class Home extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            experience_year: new Date(2017, 6, 1),
+            now: new Date(),
+            oneDay: 24 * 60 * 60 * 1000,
+        }
+    }
+
+    componentDidMount() {
+        const { experience_year, now, oneDay } = this.state
+        this.setState({ diffDays: Math.round(Math.abs((experience_year.getTime() - now.getTime()) / (oneDay))) })
+    }
+
     render() {
+        console.log(this.state.diffDays)
         const { classes } = this.props
         return (
             <Grid id="mainContainer" className={classes.root}>
@@ -43,13 +59,15 @@ class Home extends Component {
                             container
                             alignItems="flex-start"
                             direction="row"
-                            justify="flex-start"
+                            justify="space-between"
                             className={classes.content_header}
                         >
-                            <Grid item>
-                                <img src={aboutMe} alt="" className={classes.about_me_img}></img>
+                            <Grid item xs={0} md={4}>
+                                <Hidden smDown>
+                                    <img src={aboutMe} alt="" className={classes.about_me_img}></img>
+                                </Hidden>
                             </Grid>
-                            <Grid item>
+                            <Grid item xs={12} md={7}>
                                 <Typography variant="headline" className={classes.content_about_me}>
                                     <div className="typewriter">
                                         <Content
@@ -61,6 +79,10 @@ class Home extends Component {
                                             ]}
                                         />
                                     </div>
+                                </Typography>
+                                <Typography paragraph className={classes.paragraph}>
+                                    {"Hello world! My name is Visarut Junsone. I am a Full-Stack Developer, before that my position is Software Solution Developer"}{"\n"}
+                                    {"and I'm very passionate and dedicated to my work. With "}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -83,7 +105,7 @@ class Home extends Component {
 
 const styles_component = theme => ({
     root: {
-        height: "100vh",
+        // height: "100vh",
         flexGrow: "1",
         display: "flex",
         minHeight: "94%",
@@ -137,6 +159,9 @@ const styles_component = theme => ({
         height: "48px",
         margin: "12px 0 4px 0",
         color: theme.palette.jet_black,
+    },
+    paragraph: {
+        margin: "12px 0 4px 20px",
     }
 });
 export default withStyles(styles_component)(Home);

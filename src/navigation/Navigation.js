@@ -40,10 +40,6 @@ class Navigation extends Component {
         this.props.history.push(path);
     };
 
-    componentDidMount() {
-
-    }
-
     render() {
         const { drawer_open } = this.state
         const { children, classes } = this.props
@@ -111,7 +107,7 @@ class Navigation extends Component {
                         />
                     </Drawer>
                 </Hidden>
-                <main className={classNames(classes.content, classes.content_left, {
+                <main className={classNames( drawer_open ? classes.content2 : classes.content, classes.content_left, {
                     [classes.content_shift]: drawer_open,
                     [classes.content_shift_left]: drawer_open
                 })}>
@@ -137,6 +133,7 @@ const styles_component = theme => ({
         margin: "0 8px 0 24px",
     },
     app_bar: {
+        position: "fixed",
         backgroundColor: theme.palette.white,
         color: theme.palette.jet_black,
         zIndex: theme.zIndex.drawer + 1,
@@ -172,7 +169,13 @@ const styles_component = theme => ({
     content: {
         width: "100%",
         overflowY: "auto",
-        overflowX: "hidden"
+        overflowX: "hidden",
+    },
+    content2: {
+        paddingLeft: DRAWER_WIDTH,
+        width: "100%",
+        overflowY: "auto",
+        overflowX: "hidden",
     },
     content_left: {
         [theme.breakpoints.up("md")]: {
@@ -193,8 +196,8 @@ const styles_component = theme => ({
         }
     },
     drawer_paper: {
-        position: "relative",
-        overflow: "hidden",
+        // position: "relative",
+        // overflow: "hidden",
         backgroundColor: theme.palette.white_smoke,
         width: DRAWER_WIDTH
     },
