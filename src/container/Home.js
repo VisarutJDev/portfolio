@@ -16,17 +16,23 @@ class Home extends Component {
         this.state = {
             experience_year: new Date(2017, 6, 1),
             now: new Date(),
-            oneDay: 24 * 60 * 60 * 1000,
         }
     }
 
     componentDidMount() {
-        const { experience_year, now, oneDay } = this.state
-        this.setState({ diffDays: Math.round(Math.abs((experience_year.getTime() - now.getTime()) / (oneDay))) })
+        const { experience_year, now } = this.state
+        var startMonth = experience_year.getFullYear() * 12 + experience_year.getMonth();
+        var endMonth = now.getFullYear() * 12 + now.getMonth();
+        var monthInterval = (endMonth - startMonth);
+        var yearsOfExperience = Math.floor(monthInterval / 12);
+        var monthsOfExperience = monthInterval % 12;
+        this.setState({
+            year: yearsOfExperience,
+            month: monthsOfExperience
+        })
     }
 
     render() {
-        console.log(this.state.diffDays)
         const { classes } = this.props
         return (
             <Grid id="mainContainer" className={classes.root}>
@@ -55,35 +61,50 @@ class Home extends Component {
                             </Typography>
                         </Grid>
                         <Grid
-                            spacing={24}
+                            spacing={0}
                             container
                             alignItems="flex-start"
                             direction="row"
                             justify="space-between"
                             className={classes.content_header}
                         >
-                            <Grid item xs={0} md={4}>
+                            <Grid item xs={false} md={4}>
                                 <Hidden smDown>
                                     <img src={aboutMe} alt="" className={classes.about_me_img}></img>
                                 </Hidden>
                             </Grid>
                             <Grid item xs={12} md={7}>
-                                <Typography variant="headline" className={classes.content_about_me}>
-                                    <div className="typewriter">
-                                        <Content
-                                            prefix={"I'm Visarut Junsone and "}
-                                            strings={[
-                                                'Software Solution Developer',
-                                                'Full-Stack Developer',
-                                                'Lazy-Dev'
-                                            ]}
-                                        />
-                                    </div>
-                                </Typography>
-                                <Typography paragraph className={classes.paragraph}>
-                                    {"Hello world! My name is Visarut Junsone. I am a Full-Stack Developer, before that my position is Software Solution Developer"}{"\n"}
-                                    {"and I'm very passionate and dedicated to my work. With "}
-                                </Typography>
+                                <Grid
+                                    spacing={16}
+                                    container
+                                    direction="column"
+                                    justify="flex-start"
+                                    alignItems="flex-start"
+                                >
+                                    <Grid item>
+                                        <Typography variant="headline" className={classes.content_about_me}>
+                                            <div className="typewriter">
+                                                <Content
+                                                    prefix={"I'm Visarut Junsone and "}
+                                                    strings={[
+                                                        'Software Developer',
+                                                        'Full-Stack Developer',
+                                                        'Lazy-Dev'
+                                                    ]}
+                                                />
+                                            </div>
+                                        </Typography>
+
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography paragraph className={classes.paragraph}>
+                                            {"Hello world! My name is Visarut Junsone. I am a Full-Stack Developer, before that my position is Software Solution Developer"}
+                                            {"and I'm very passionate and dedicated to my work. With "}{this.state.year}{" year and "}{this.state.month}{" month"}
+                                            {" as devloper, I specializing in back-end and web development and love to understand the surronding knowledge, "}
+                                            {"Enjoys to solve the problem and learning new technologies and tool if the need arises."}
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
                             </Grid>
                         </Grid>
                         <Grid
@@ -126,7 +147,7 @@ const styles_component = theme => ({
         flexGrow: "1"
     },
     about_me_img: {
-        maxWidth:"100%",
+        maxWidth: "100%",
         margin: "20px"
     },
     space_bottom: {
@@ -160,9 +181,11 @@ const styles_component = theme => ({
         height: "48px",
         margin: "12px 0 4px 0",
         color: theme.palette.jet_black,
+        lineHeight: "30px"
     },
     paragraph: {
-        margin: "12px 0 4px 20px",
+        margin: "5px 15px 4px 15px",
+        fontSize: "22px",
     }
 });
 export default withStyles(styles_component)(Home);
