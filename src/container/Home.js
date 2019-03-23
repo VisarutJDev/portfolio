@@ -4,7 +4,7 @@ import {
     Grid,
     Card,
 } from "@material-ui/core";
-import { PageHeader, AboutMe } from 'components'
+import { PageHeader, AboutMe, Ability } from 'components'
 
 class Home extends Component {
     constructor(props) {
@@ -54,6 +54,8 @@ class Home extends Component {
                         month={this.state.month}
                         age={this.state.age}
                     />
+                    <div className={classes.space_bottom} />
+                    <Ability/>
                 </Grid>
             </Grid>
         );
