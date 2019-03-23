@@ -11,6 +11,7 @@ const theme = createMuiTheme({
   },
   palette: {
     white_blue: "#f6f7fd",
+    button_color: "#E3872D",
     primary: {
       light: "#839691",
       main: "#5a6965",
