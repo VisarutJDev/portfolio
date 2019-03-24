@@ -63,12 +63,22 @@ const AboutMe = ({ classes, year, month, age }) => {
 
                         </Grid>
                         <Grid item>
-                            <Typography paragraph className={classes.paragraph}>
-                                {"Hello world! My name is Visarut Junsone. I am a Full-Stack Developer, before that my position is Software Solution Developer"}
-                                {"and I'm very passionate and dedicated to my work. With "}{year}{" year and "}{month}{" month"}
-                                {" as devloper, I specializing in back-end and web development and love to understand the surronding knowledge, "}
-                                {"Enjoys to solve the problem and learning new technologies and tool if the need arises."}
-                            </Typography>
+                            <Hidden smDown>
+                                <Typography paragraph className={classes.paragraph}>
+                                    {"Hello world! My name is Visarut Junsone. I am a Full-Stack Developer, before that my position is Software Solution Developer"}
+                                    {"and I'm very passionate and dedicated to my work. With "}{year}{" year and "}{month}{" month"}
+                                    {" as devloper, I specializing in back-end and web development and love to understand the surronding knowledge, "}
+                                    {"Enjoys to solve the problem and learning new technologies and tool if the need arises."}
+                                </Typography>
+                            </Hidden>
+                            <Hidden mdUp>
+                                <Typography paragraph className={classes.paragraph_mobile}>
+                                    {"Hello world! My name is Visarut Junsone. I am a Full-Stack Developer, before that my position is Software Solution Developer"}
+                                    {"and I'm very passionate and dedicated to my work. With "}{year}{" year and "}{month}{" month"}
+                                    {" as devloper, I specializing in back-end and web development and love to understand the surronding knowledge, "}
+                                    {"Enjoys to solve the problem and learning new technologies and tool if the need arises."}
+                                </Typography>
+                            </Hidden>
                         </Grid>
                         <Grid item>
                             <Hidden smDown>
@@ -290,5 +300,10 @@ const styles_component = theme => ({
     space_left: {
         paddingLeft: "25px",
     },
+    paragraph_mobile: {
+        margin: "5px 15px 4px 15px",
+        fontSize: "22px",
+        textAlign: "center"
+    }
 });
 export default withStyles(styles_component)(AboutMe);

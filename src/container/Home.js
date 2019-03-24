@@ -45,9 +45,11 @@ class Home extends Component {
                     elevation={2}
                     className={classes.page_container}
                 >
+                    <div id="header"/>
                     <PageHeader
                         title="Visarut Junsone"
                     />
+                    <div id="about"/>
                     <div className={classes.space_bottom} />
                     <AboutMe
                         year={this.state.year}
@@ -55,7 +57,9 @@ class Home extends Component {
                         age={this.state.age}
                     />
                     <div className={classes.space_bottom} />
-                    <Ability/>
+                    <Ability />
+                    <div id="ability"/>
+                    <div className={classes.space_bottom} />
                 </Grid>
             </Grid>
         );
@@ -84,7 +88,7 @@ const styles_component = theme => ({
         flexDirection: "column",
         flexGrow: "1"
     },
-   
+
     space_bottom: {
         marginBottom: "100px",
     },

@@ -37,7 +37,7 @@ class Navigation extends Component {
         if (!is_md_up) {
             this.setState({ drawer_open: false });
         }
-        this.props.history.push(path);
+        // this.props.history.push(path);
     };
 
     render() {

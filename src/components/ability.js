@@ -41,12 +41,12 @@ const Ability = ({ classes }) => {
                 </Grid>
                 <Grid item xs={12} md={5}>
                     <Typography paragraph className={classes.paragraph}>
-                        <span className={classes.text_lead}>Programming</span><br/>
-                        <span className={classes.text_follow}>GoLang, C#, PHP, JAVA, Javascript, mySQL</span><br/>
-                        <span className={classes.text_lead}>Web</span><br/>
-                        <span className={classes.text_follow}>Reactjs, HTML5</span><br/>
-                        <span className={classes.text_lead}>language</span><br/>
-                        <span className={classes.text_follow}>English. (TOEIC 690. Since April 8, 2017)</span><br/>
+                        <span className={classes.text_lead}>{"Programming"}</span><br/>
+                        <span className={classes.text_follow}>{"GoLang, C#, PHP, JAVA, Javascript, mySQL"}</span><br/>
+                        <span className={classes.text_lead}>{"Web"}</span><br/>
+                        <span className={classes.text_follow}>{"Reactjs, HTML5"}</span><br/>
+                        <span className={classes.text_lead}>{"language"}</span><br/>
+                        <span className={classes.text_follow}>{"English. (TOEIC 690. Since April 8, 2017)"}</span><br/>
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={2}>
@@ -59,7 +59,7 @@ const Ability = ({ classes }) => {
 
 const styles_component = theme => ({
     content_container: {
-        padding: "90px 5% 16px 5%",
+        padding: "90px 5% 90px 5%",
         // padding: "8px 5% 16px 5%",
         flexGrow: "1",
         backgroundColor: theme.palette.white_blue,

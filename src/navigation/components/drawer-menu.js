@@ -1,14 +1,15 @@
 import React from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const styles = theme => ({
     menuItem: {
         '&:focus': {
             backgroundColor: theme.palette.gainsboro,
             '& $primary, & $icon': {
-              color: theme.palette.common.white,
+                color: theme.palette.common.white,
             },
         },
     },
@@ -20,22 +21,33 @@ const styles = theme => ({
         lineHeight: "1.5em",
     },
     icon: {},
+    linkStyle: {
+        textDecoration: "none",
+    }
 });
 
 const DrawerMenu = ({ text, path, is_md_up, icon: Icon, onClick, classes }) => {
     return (
-        <ListItem
-            className={classes.menuItem}
-            button
-            onClick={() => {
-                onClick(path, is_md_up);
-            }}
+        <Link
+            to={path}
+            smooth
+            className={classes.linkStyle}
         >
-            <ListItemIcon>
-                <FontAwesomeIcon icon={Icon} fixedWidth />
-            </ListItemIcon>
-            <ListItemText disableTypography={true} className={classes.primary}>{text}</ListItemText>
-        </ListItem>
+            <ListItem
+                className={classes.menuItem}
+                button
+                onClick={() => {
+                    onClick(path, is_md_up);
+                }}
+            >
+                <ListItemIcon>
+                    <FontAwesomeIcon icon={Icon} fixedWidth />
+                </ListItemIcon>
+                <ListItemText disableTypography={true} className={classes.primary}>
+                    {text}
+                </ListItemText>
+            </ListItem>
+        </Link>
     );
 };
 

@@ -22,28 +22,35 @@ const DrawerItems = ({
       onClick={onClick}
       is_md_up={is_md_up}
       // icon={"clipboard-list"}
-      path={PathConfig.work_experience}
+      path={PathConfig.root+ "#header"}
     />
     <DrawerMenu
       text="ABOUT"
       onClick={onClick}
       is_md_up={is_md_up}
       // icon={"clipboard-list"}
-      path={PathConfig.work_experience}
+      path={PathConfig.root+ "#about"}
+    />
+    <DrawerMenu
+      text="MY ABILITY"
+      onClick={onClick}
+      is_md_up={is_md_up}
+      // icon={"clipboard-list"}
+      path={PathConfig.root+ "#ability"}
     />
     <DrawerMenu
       text="LATEST BLOG"
       onClick={onClick}
       is_md_up={is_md_up}
       // icon={"clipboard-list"}
-      path={PathConfig.work_experience}
+      path={PathConfig.root+ "#ability"}
     />
     <DrawerMenu
       text="CONTACT"
       onClick={onClick}
       is_md_up={is_md_up}
       // icon={"clipboard-list"}
-      path={PathConfig.work_experience}
+      path={PathConfig.root+ "#header"}
     />
   </div>
 );
